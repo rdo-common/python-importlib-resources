@@ -9,7 +9,7 @@ versions, importlib_resources just delegates to that module.
 
 Name:           python-importlib-resources
 Version:        1.0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Read resources from Python packages
 
 License:        ASL 2.0
@@ -19,7 +19,7 @@ Source0:        %pypi_source
 Patch0001: 0001-raise-NotImplementedError-on-Python-2.patch
 
 BuildArch:      noarch
- 
+
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(sphinx)
 BuildRequires:  python3dist(wheel)
@@ -68,5 +68,8 @@ rm -r %{buildroot}/%{python3_sitelib}/%{pypi_name}/{docs,tests}/
 %doc html
 
 %changelog
+* Fri Mar 20 2020 Neal Gompa <ngompa13@gmail.com> - 1.0.2-2
+- Rebuild again for EPEL 8
+
 * Thu Nov 07 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0.2-1
 - Initial package.
