@@ -9,7 +9,7 @@ versions, importlib_resources just delegates to that module.
 
 
 Name:           python-importlib-resources
-Version:        3.0.0
+Version:        3.3.0
 Release:        1%{?dist}
 Summary:        Read resources from Python packages
 
@@ -70,6 +70,9 @@ sed -i '/setup_requires/d' setup.cfg
 %doc README.rst
 
 %changelog
+* Thu Nov 05 2020 Joel Capitao <jcapitao@redhat.com> - 3.3.0-1
+- Update to 3.3.0
+
 * Mon Jul 20 2020 Yatin Karel <ykarel@redhat.com> - 3.0.0-1
 - Update to 3.0.0
 - Also update NotImplemented Python2 patch
