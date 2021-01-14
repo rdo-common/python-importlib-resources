@@ -1,0 +1,33 @@
+From bce94e9f6dae527c6d7372b7af903ce3b3e3adc7 Mon Sep 17 00:00:00 2001
+From: Joel Capitao <jcapitao@redhat.com>
+Date: Thu, 14 Jan 2021 16:56:27 +0100
+Subject: [PATCH] Set use_scm_version to True in setup.py
+
+For backward compatibility, 'use_scm_version' should be set to True in
+setup.py.
+When building this package in CentOS Build System, the version written
+was 0.0.0.
+CBS is using old version of python-setuptools and python_setuptools_scm,
+that's why it still depends on 'setup.cfg' usage.
+With this change, the python command 'python setup.py --version' returns
+the right version.
+---
+ setup.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index bac24a4..722c22f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -3,4 +3,7 @@
+ import setuptools
+ 
+ if __name__ == "__main__":
+-    setuptools.setup()
++    setuptools.setup(
++        use_scm_version=True,
++        setup_requires=['setuptools_scm'],
++    )
+-- 
+2.26.2
+

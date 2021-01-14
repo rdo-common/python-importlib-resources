@@ -9,7 +9,7 @@ versions, importlib_resources just delegates to that module.
 
 
 Name:           python-importlib-resources
-Version:        3.3.0
+Version:        4.1.1
 Release:        1%{?dist}
 Summary:        Read resources from Python packages
 
@@ -17,7 +17,7 @@ License:        ASL 2.0
 URL:            https://importlib-resources.readthedocs.io/
 Source0:        %pypi_source
 
-Patch0001: 0001-raise-NotImplementedError-on-Python-2.patch
+Patch0001:      0001-Set-use_scm_version-to-True-in-setup.py.patch
 
 BuildArch:      noarch
 
@@ -63,13 +63,16 @@ sed -i '/setup_requires/d' setup.cfg
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %files doc
 %license LICENSE
 %doc README.rst
 
 %changelog
+* Thu Jan 14 2021 Joel Capitao <jcapitao@redhat.com> - 4.1.1-1
+- Update to 4.1.1
+
 * Thu Nov 05 2020 Joel Capitao <jcapitao@redhat.com> - 3.3.0-1
 - Update to 3.3.0
 
